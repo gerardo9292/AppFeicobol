@@ -1,27 +1,62 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title align="center">FORMULARIO DE PEDIDO</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+  <h2 align="center">Seleccione el producto</h2>
+    <ion-item>
+    <ion-label>Almacenes</ion-label>
+    <ion-select [(ngModel)]="almacen">
+      <ion-option *ngFor="let almacen of almacenList" [value]="almacen.id">
+        {{ almacen.tipo }}
+      </ion-option>      
+    </ion-select>
+  </ion-item>
+
   <ion-item>
     <ion-label>Categorias</ion-label>
-    <!-- <ion-select [(ngModel)]="gender"> -->
     <ion-select [(ngModel)]="categoria">
       <ion-option *ngFor="let categoria of categoriaList" [value]="categoria.id">
         {{ categoria.nombre }}
       </ion-option>
-      <!-- <ion-option value="f">Female</ion-option>
-      <ion-option value="m">Male</ion-option> -->
     </ion-select>
   </ion-item>
-  <!-- <ion-select>
-    <ion-option *ngFor="let categoria of categoriaList">
-      {{ categoria.nombre }}
-    </ion-option>
-  </ion-select> -->
-</ion-content>
 
+  <div align="center">
+    <button  (click)="getProductos(categoria, almacen)" ion-button>Cargar Productos</button>
+  </div>
+  <ion-item>
+    <ion-label>Productos</ion-label>
+    <ion-select [(ngModel)]="producto">
+      <ion-option  *ngFor="let producto of productoList" [value]="producto.id">
+        {{ producto.nombre }}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tipo de Empaque</ion-label>
+    <ion-select [(ngModel)]="tipoEmpaque">
+      <ion-option value="unidad">Unidad</ion-option>
+      <ion-option value="paquete">Paquete</ion-option>
+      <ion-option value="caja">Caja</ion-option>
+    </ion-select>
+  </ion-item>
+<ion-list>
+  <div padding>
+    <h4 color="primary">Cantidad</h4>
+    <ion-textarea type="tel" [(ngModel)]="cantidad" maxlength="5" placeholder="Ingrese cantidad"></ion-textarea>
+  
+    <h4 color="primary">Descripción</h4>
+    <ion-textarea [(ngModel)]="description" maxlength="100" placeholder="Describa el area donde realizara el trabajo"></ion-textarea>
+  </div>
+  <div padding>
+    <button [disabled]="!cantidad || !description || !tipoEmpaque || !categoria || !almacen || !producto" ion-button block type="submit" (click)="sendParams(producto, tipoEmpaque, cantidad, description)">ENVIAR</button>
+  </div>
+
+</ion-list>
+
+</ion-content>
 

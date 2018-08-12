@@ -7,5 +7,20 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-label>Categorias</ion-label>
+    <!-- <ion-select [(ngModel)]="gender"> -->
+    <ion-select [(ngModel)]="categoria">
+      <ion-option *ngFor="let categoria of categoriaList" [value]="categoria.id">
+        {{ categoria.nombre }}
+      </ion-option>
+      <!-- <ion-option value="f">Female</ion-option>
+        <ion-option value="m">Male</ion-option> -->
+    </ion-select>
+  </ion-item>
+  <!-- <ion-select>
+      <ion-option *ngFor="let categoria of categoriaList">
+        {{ categoria.nombre }}
+      </ion-option>
+    </ion-select> -->
 </ion-content>

@@ -1,17 +1,43 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
+  <ion-navbar color="damagy">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title align="center">Mi Perfil</ion-title>
+
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content padding>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <div align="center">
+        <ion-avatar item-start>
+          <img src="assets/imgs/descarga.png">
+        </ion-avatar>
+
+      </div>
+
     </ion-item>
+    <ion-item align="center">
+      <div align="center">
+        <p>{{user}}</p>
+      </div>
+    </ion-item>
+    <!-- <ion-item align="center">
+      <div align="center">
+        <p>{{name}}</p>
+      </div>
+    </ion-item>
+
+    <ion-item align="center">
+      <div align="center">
+        <p>{{email}}</p>
+      </div>
+    </ion-item> -->
   </ion-list>
+  <div align="center">
+    <button ion-button full (click)="deleteCache()">Logout</button>
+  </div>
 </ion-content>
