@@ -17,7 +17,9 @@ export class AboutPage {
     localStorage.getItem('usuario_id');
     this.getPedidosUser();
   }
-
+  ionViewWillEnter(){
+    this.getPedidosUser();
+  }
   getPedidosUser() {
     this.key = localStorage.getItem('token');
     this.userId = localStorage.getItem('usuario_id');

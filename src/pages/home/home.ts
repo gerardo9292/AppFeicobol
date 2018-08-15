@@ -37,7 +37,9 @@ export class HomePage {
    localStorage.getItem('usuario_id');
 
   }
-
+  ionViewWillEnter() {
+    console.log("entro aqui y recargo");
+  }
   getAlmacenes(){
     this.key = localStorage.getItem('token');
     this.rest.getAlmacenes(this.key).then((data) => {
